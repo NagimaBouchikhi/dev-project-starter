@@ -1,0 +1,96 @@
+/* Conteneur global */
+.app {
+  min-height: 100vh;
+  background-color: #f9fafb; /* bg-gray-50 */
+  font-family: sans-serif;
+  padding: 2.5rem; /* p-10 */
+}
+
+.app-container {
+  max-width: 64rem; /* max-w-4xl */
+  margin: 0 auto;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  margin-bottom: 2.5rem; /* mb-10 */
+}
+
+.app-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  color: #111827; /* text-gray-900 */
+  margin-bottom: 0.5rem;
+}
+
+.app-subtitle {
+  color: #4b5563; /* text-gray-600 */
+}
+
+/* Grid principal */
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 768px) {
+  .app-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Cartes */
+.app-card {
+  background-color: #ffffff;
+  padding: 1.5rem; /* p-6 */
+  border-radius: 1rem; /* rounded-xl */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* shadow-sm */
+  border: 1px solid #f3f4f6; /* border-gray-100 */
+}
+
+/* Titres cartes */
+.app-card-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700;
+  color: #2563eb; /* text-blue-600 */
+  margin-bottom: 1rem;
+}
+
+.app-card-subtitle {
+  font-size: 0.75rem; /* text-sm */
+  font-weight: 600;
+  color: #9ca3af; /* text-gray-400 */
+  text-transform: uppercase;
+  letter-spacing: 0.05em; /* tracking-wider */
+  margin-bottom: 1rem;
+}
+
+/* Description */
+.app-card-desc {
+  color: #4b5563; /* text-gray-600 */
+  line-height: 1.6;
+}
+
+/* Recommandation */
+.app-recommendation {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #eff6ff; /* bg-blue-50 */
+  color: #1e40af; /* text-blue-800 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 0.875rem; /* text-sm */
+}
+
+.app-recommendation ul {
+  list-style: disc;
+  list-style-position: inside;
+  margin-top: 0.5rem;
+  padding-left: 0;
+}
+
+/* Conteneur de l'arbre */
+.folder-tree-container {
+  font-family: monospace;
+}

@@ -1,0 +1,55 @@
+
+.folder-tree {
+  user-select: none;
+}
+
+
+.folder-tree-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.folder-tree-item:hover {
+  background-color: #f3f4f6; /* gris clair */
+}
+
+/* Indentation selon la profondeur */
+.folder-tree-item.depth-0 { margin-left: 0; }
+.folder-tree-item.depth-1 { margin-left: 16px; }
+.folder-tree-item.depth-2 { margin-left: 32px; }
+.folder-tree-item.depth-3 { margin-left: 48px; }
+
+
+
+.folder-icon {
+  margin-right: 8px;
+}
+
+.folder-toggle {
+  margin-right: 4px;
+  color: #9ca3af; 
+}
+
+/* Nom de fichier/dossier */
+.folder-name {
+  font-size: 0.875rem;
+}
+
+.folder-tree-item.folder .folder-name {
+  font-weight: 500;
+  color: #374151; 
+}
+
+.folder-tree-item.file .folder-name {
+  color: #6b7280; 
+}
+
+/* Conteneur des enfants */
+.folder-children {
+  border-left: 1px solid #e5e7eb;
+  margin-left: 12px;
+  padding-left: 4px;
+}

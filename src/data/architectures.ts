@@ -1,4 +1,4 @@
-import { Architecture } from "../types";
+import type { Architecture } from "../types";
 
 export const ARCHITECTURES: Architecture[] = [
     {
