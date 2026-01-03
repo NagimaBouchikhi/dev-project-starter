@@ -7,6 +7,14 @@ export interface FolderStructure {
     children?: FolderStructure[]; // Enfants si c'est un dossier
 }
 
+//Role en equipe
+export interface TeamRole {
+    title: string; //ex: "Frontend Developer"
+    description: string; //ce qu'il fait"
+    focus: string[]; //les dossiers qu'il touche 
+
+}
+
 //Definit ce qu'une Architecture compléte
 export interface Architecture {
     id: string;
@@ -19,4 +27,10 @@ export interface Architecture {
     };
     //structure de dossier concréte
     structure: FolderStructure[];
+
+    //La strategie de travail
+    workflow : {
+        solo : string[]; //Liste des etape une personne seule 
+        team : TeamRole[]; //Liste des rôles pour une équipe
+    }
 }

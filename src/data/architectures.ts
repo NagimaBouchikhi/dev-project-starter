@@ -40,8 +40,30 @@ export const ARCHITECTURES: Architecture[] = [
           }
         ]
       }
-    ]
-  }, 
+    ],
+
+    //workflow pour une personne seule
+    workflow : {
+        solo : [
+          "1. Commence par définir tes TYPES (dans /types). C'est ton contrat.",
+          "2. Crée les SERVICES factices (mock) pour simuler l'API.",
+          "3. Crée tes PAGES statiques (sans logique).",
+          "4. Connecte les pages aux services."
+      ],
+      team: [
+        {
+          title : "Dev UI / Integration",
+          description : "S'occupe du visuel et l'experience utilisateur.",
+          focus : ["/components", "/pages"]
+        },
+        {
+          title: "Dev Logic / API",
+          description : "Gère les appels réseau et la manipulation des données.",
+          focus : ["/services", "/types"]
+        }
+      ]
+    }
+  },
   {
     id: 'clean-architecture',
     name: 'Clean Architecture',
@@ -86,7 +108,37 @@ export const ARCHITECTURES: Architecture[] = [
           }
         ]
        }
-    ]
+    ],
+
+
+    workflow : {
+      solo : [
+        "1. DOMAIN FIRST : Écris tes Entités et tes Use-Cases (Règles métier).",
+        "2. Définis les interfaces de tes Repositories (Contrats).",
+        "3. Implémente la couche DATA (API réelle).",
+        "4. Finis par la couche PRESENTATION (UI)."
+      ],
+      team: [
+        {
+          title: "Domain Expert",
+          description : "Se concentre sur la logique métier. Ne touche pas au framawork",
+          focus : ["/domain/entities", "/domain/use-cases"]
+        },
+        {
+          title: "Date Engineer",
+          description: "Connecte l'app au monde extérieur (API, DB...)",
+          focus: ["/data/repositories", "/domain/interfaces"]
+        },
+        {
+          title: "Frontend Developer",
+          description: "Utilise les use-cases pour construire l'interface utilisateur.",
+          focus: ["/presentation/components", "/presentation/pages"]
+        }
+
+      ]
+
+    }
   }
 
-]
+
+];

@@ -5,14 +5,17 @@ import { useState } from 'react';
 import type { Architecture } from './types';
 import { ProjectWizard } from './components/ProjectWizard';
 import { ArrowLeft } from 'lucide-react';
+import { TeamRoles } from './components/TeamRole';
 
 function App() {
 
   //Quelle architecture est selectionnée (null ou debut)
   const [selectedArchitecture,setSelectedArchitecture] = useState<Architecture | null>(null);
+  const [userChoices, setUserChoices] = useState<{teamSize: string; projectType: string} | null>(null);
 
   //Appeler quand le formulaire est validé
   const handleFormComplete = (criteria: {teamSize: string; projectType: string}) => {
+    setUserChoices(criteria);
     //On cherche l'architecture qui matche exactement les critéres
     const found = ARCHITECTURES.find(arch => 
       arch.recommendation.teamSize === criteria.teamSize &&
@@ -59,7 +62,7 @@ function App() {
           <div className='app-grid'>
 
             {/**Infos architecture */}
-            <div className='app-ard app-architecture-info'>
+            <div className='app-card app-architecture-info'>
               <div className='app-architecture-header'>
                 <span className='app-badge'> Recommendé</span>
                 <h2 className='app-architecture-title'>
@@ -90,6 +93,14 @@ function App() {
                     </span>
                   </li>
                 </ul>
+              </div>
+
+              {/**Plan d'attaque */}
+              <div className='team-roles'>
+                <TeamRoles
+                  architecture={selectedArchitecture}
+                  mode={userChoices?.teamSize === 'solo' ? 'solo' : 'team'}
+                />
               </div>
           </div>
 
