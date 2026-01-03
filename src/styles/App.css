@@ -1,41 +1,86 @@
-/* Conteneur global */
+/* Layout global */
 .app {
   min-height: 100vh;
-  background-color: #f9fafb; /* bg-gray-50 */
-  font-family: sans-serif;
-  padding: 2.5rem; /* p-10 */
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  font-family: system-ui, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding: 2.5rem;
+  }
 }
 
 .app-container {
-  max-width: 64rem; /* max-w-4xl */
+  max-width: 80rem;
   margin: 0 auto;
 }
 
 /* Header */
 .app-header {
   text-align: center;
-  margin-bottom: 2.5rem; /* mb-10 */
+  margin-bottom: 2.5rem;
 }
 
 .app-title {
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 700;
-  color: #111827; /* text-gray-900 */
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #111827;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.app-title-accent {
+  color: #2563eb;
 }
 
 .app-subtitle {
-  color: #4b5563; /* text-gray-600 */
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+
+/* Vues */
+.app-view {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bouton retour */
+.app-back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.app-back-button:hover {
+  color: #2563eb;
 }
 
 /* Grid principal */
 .app-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem; /* gap-8 */
+  gap: 2rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .app-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -44,53 +89,88 @@
 /* Cartes */
 .app-card {
   background-color: #ffffff;
-  padding: 1.5rem; /* p-6 */
-  border-radius: 1rem; /* rounded-xl */
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* shadow-sm */
-  border: 1px solid #f3f4f6; /* border-gray-100 */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* Titres cartes */
-.app-card-title {
-  font-size: 1.25rem; /* text-xl */
+/* Architecture info */
+.app-architecture-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.app-badge {
+  padding: 0.25rem 0.75rem;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: #2563eb; /* text-blue-600 */
-  margin-bottom: 1rem;
-}
-
-.app-card-subtitle {
-  font-size: 0.75rem; /* text-sm */
-  font-weight: 600;
-  color: #9ca3af; /* text-gray-400 */
+  border-radius: 9999px;
   text-transform: uppercase;
-  letter-spacing: 0.05em; /* tracking-wider */
+  letter-spacing: 0.05em;
+}
+
+.app-architecture-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.app-architecture-description {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Raisons */
+.app-architecture-reasons {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #f3f4f6;
+}
+
+.app-architecture-reasons h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.app-architecture-reasons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-architecture-reasons li {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.app-architecture-reasons span {
+  margin-left: 0.25rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* Structure */
+.app-structure-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-bottom: 1rem;
 }
 
-/* Description */
-.app-card-desc {
-  color: #4b5563; /* text-gray-600 */
-  line-height: 1.6;
-}
-
-/* Recommandation */
-.app-recommendation {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #eff6ff; /* bg-blue-50 */
-  color: #1e40af; /* text-blue-800 */
-  border-radius: 0.5rem; /* rounded-lg */
-  font-size: 0.875rem; /* text-sm */
-}
-
-.app-recommendation ul {
-  list-style: disc;
-  list-style-position: inside;
-  margin-top: 0.5rem;
-  padding-left: 0;
-}
-
-/* Conteneur de l'arbre */
-.folder-tree-container {
+.app-structure-tree {
   font-family: monospace;
+  font-size: 0.875rem;
+  border-left: 2px solid #f3f4f6;
+  padding-left: 0.5rem;
 }
