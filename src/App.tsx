@@ -7,6 +7,7 @@ import { ProjectWizard } from './components/ProjectWizard';
 import { ArrowLeft } from 'lucide-react';
 import { TeamRoles } from './components/TeamRole';
 import { FirstSteps } from './components/FirstSteps';
+import { AIPrompts } from './components/AIPrompts';
 
 function App() {
 
@@ -46,6 +47,8 @@ function App() {
       {/**Conteneur principal */}
       {!selectedArchitecture ? (
         <div className='app-view app-view-form'>
+
+          {/**Formulaire de sélection */}
           <ProjectWizard onComplete={handleFormComplete}/> 
         </div>
       ): (
@@ -61,8 +64,8 @@ function App() {
           </button>
 
           <div className='app-grid'>
-
-            {/**Infos architecture */}
+          {/**Colonne de gauche info architecture + team role + first steps */}
+        
             <div className='app-card app-architecture-info'>
               <div className='app-architecture-header'>
                 <span className='app-badge'> Recommendé</span>
@@ -110,22 +113,28 @@ function App() {
               </div>
           </div>
 
-          {/**Arborescence */}
-          <div className='app-card app-structure'>
-          <h3 className='app-structure-title'>Structure de dossier</h3>
-          <div className='app-structure-tree'>
-            {selectedArchitecture.structure.map((item,index) => (
-              <FolderTree 
-                key={index}
-                structure={item}
-              />
-            ))}
+
+          {/**Colonne de droite Arborescence + prompts */}
+          <div className = 'app-sidebar-sticky'>
+            <div className='app-card app-structure'>
+              <h3 className='app-structure-title'>Structure de dossier</h3>
+              <div className='app-structure-tree'>
+                {selectedArchitecture.structure.map((item,index) => (
+                  <FolderTree 
+                    key={index}
+                    structure={item}
+                  />
+                ))}
+              </div>
+          </div>
+
+          {/**Prompts IA */}
+          <div className='app-card app-ai-prompts'>
+            <AIPrompts prompts={selectedArchitecture.prompts}/>
           </div>
         </div>
-        </div>
       </div>
-
-        
+      </div>
       )}
 
     </div>

@@ -69,6 +69,17 @@ export const ARCHITECTURES: Architecture[] = [
       "touch src/types/User.ts",
       "touch src/services/api.ts",
       "git add . && git commit -m 'feat: init folder structure for MVC React Simple architecture'"
+    ],
+
+    prompts: [
+      {
+        label: "Générer un Service API",
+        content: "Agis comme un expert React/TypeScript. Crée un service dans 'src/services' utilisant Fetch. Il doit gérer les erreurs avec un try/catch et typer les retours avec une interface définie dans 'src/types'. Le code doit être propre et commenté."
+      },
+      {
+        label: "Créer un Composant UI",
+        content: "Crée un composant React fonctionnel dans 'src/components'. Utilise TailwindCSS pour le style. Le composant doit être typé avec React.FC et accepter des props claires. N'ajoute pas de logique métier complexe, garde-la pour les pages."
+      }
     ]
   },
   {
@@ -151,6 +162,21 @@ export const ARCHITECTURES: Architecture[] = [
       "touch src/domain/entities/User.ts",
       "touch src/domain/repositories/UserRepository.ts",
       "git add . && git commit -m 'feat: init folder structure for Clean Architecture'"
+    ],
+
+    prompts: [
+       {
+        label: "Générer une Entité (Domain)",
+        content: "Agis comme un Architecte Logiciel. Crée une Entité pour le dossier 'src/domain/entities'. C'est une classe ou interface TypeScript pure, SANS aucune dépendance à React, Axios ou une librairie externe. Elle doit contenir uniquement des règles métier."
+      },
+      {
+        label: "Use-Case (Logique Métier)",
+        content: "Crée un Use-Case pour 'src/domain/use-cases'. Il doit implémenter une interface stricte, contenir une méthode 'execute()', et utiliser l'injection de dépendance pour le Repository. Interdit d'importer du code de la couche Presentation." 
+      },
+      {
+        label: "Implementer un Repository",
+        content: "Crée une implémentation de Repository dans 'src/data/repositories'. Elle doit implémenter l'interface définie dans le Domain. C'est ici que tu fais l'appel API réel."
+      }
     ]
   }
 

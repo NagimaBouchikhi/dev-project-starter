@@ -35,5 +35,11 @@ export interface Architecture {
     }
 
     //Les actions concrète pour démarrer 
-    firstSteps?: string[];
+    firstSteps: string[];
+
+    //Les prompt AI optimisés 
+    prompts: {
+        label: string; //Ex generer un Repository 
+        content: string; //Le prompt lui même
+    }[];
 }
