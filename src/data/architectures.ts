@@ -62,7 +62,14 @@ export const ARCHITECTURES: Architecture[] = [
           focus : ["/services", "/types"]
         }
       ]
-    }
+    },
+
+    firstSteps: [
+      "mkdir src/components src:pages src/services",
+      "touch src/types/User.ts",
+      "touch src/services/api.ts",
+      "git add . && git commit -m 'feat: init folder structure for MVC React Simple architecture'"
+    ]
   },
   {
     id: 'clean-architecture',
@@ -137,7 +144,14 @@ export const ARCHITECTURES: Architecture[] = [
 
       ]
 
-    }
+    },
+
+    firstSteps: [
+      "mkdir src/domain/entities src/domain/use-cases",
+      "touch src/domain/entities/User.ts",
+      "touch src/domain/repositories/UserRepository.ts",
+      "git add . && git commit -m 'feat: init folder structure for Clean Architecture'"
+    ]
   }
 
 

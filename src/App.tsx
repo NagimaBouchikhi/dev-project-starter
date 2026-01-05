@@ -6,6 +6,7 @@ import type { Architecture } from './types';
 import { ProjectWizard } from './components/ProjectWizard';
 import { ArrowLeft } from 'lucide-react';
 import { TeamRoles } from './components/TeamRole';
+import { FirstSteps } from './components/FirstSteps';
 
 function App() {
 
@@ -101,6 +102,11 @@ function App() {
                   architecture={selectedArchitecture}
                   mode={userChoices?.teamSize === 'solo' ? 'solo' : 'team'}
                 />
+              </div>
+
+              {/**First Steps */}
+              <div className='first-steps-container'>
+                <FirstSteps steps={selectedArchitecture.firstSteps} />
               </div>
           </div>
 

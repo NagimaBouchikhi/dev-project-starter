@@ -33,4 +33,7 @@ export interface Architecture {
         solo : string[]; //Liste des etape une personne seule 
         team : TeamRole[]; //Liste des rôles pour une équipe
     }
+
+    //Les actions concrète pour démarrer 
+    firstSteps?: string[];
 }

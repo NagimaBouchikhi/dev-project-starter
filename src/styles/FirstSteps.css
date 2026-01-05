@@ -1,0 +1,143 @@
+/* Container */
+.first-steps {
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid #374151;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  margin-top: 1.5rem;
+}
+
+/* Header */
+.first-steps-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #374151;
+}
+
+/* MacOS dots */
+.terminal-controls {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.terminal-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.terminal-dot.red {
+  background-color: #ef4444;
+}
+
+.terminal-dot.yellow {
+  background-color: #facc15;
+}
+
+.terminal-dot.green {
+  background-color: #22c55e;
+}
+
+/* Title */
+.terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #4ade80;
+}
+
+/* Content */
+.first-steps-content {
+  font-family: monospace;
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Lines */
+.terminal-line {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.terminal-prompt {
+  color: #6b7280;
+  user-select: none;
+  margin-top: 2px;
+}
+
+/* Command / comment */
+.terminal-command {
+  color: #f9fafb;
+}
+
+.terminal-comment {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Footer */
+.first-steps-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #2a2a2a;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Copy button */
+.copy-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #111827;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+.copy-button svg {
+  color: #4ade80;
+}
+
+
+/* Cursor typing */
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-start infinite;
+  color: #4ade80;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
