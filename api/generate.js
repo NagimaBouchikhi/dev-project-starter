@@ -19,7 +19,7 @@ export default async function handler(req,res) {
 
         //On config gemini 
         const genAI = new GoogleGenerativeAI(API_KEY);
-        const model = genAI.getGenerativeModel('gemini-1.5-flash'); //modele rapide et gratuit 
+        const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'}); //modele rapide et gratuit 
 
         //On prepare le prompt pour l'ai
         const finalPrompt = `
@@ -33,9 +33,10 @@ export default async function handler(req,res) {
 
         //on genere 
         const result = await model.generateContent(finalPrompt);
-        const response = await result.response.text();
+        const response = await result.response;
+        const text = response.text();
         
-        return res.status(200).json({output:response});
+        return res.status(200).json({output:text});
     } catch(error) {
         console.error('Error generating content:', error);
         return res.status(500).json({error: 'Error generating content'});
