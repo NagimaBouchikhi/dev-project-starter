@@ -19,7 +19,7 @@ export default async function handler(req,res) {
 
         //On config gemini 
         const genAI = new GoogleGenerativeAI(API_KEY);
-        const model = genAI.getGenerativeModel({model : 'gemini-1.5-flash'}); //modele rapide et gratuit 
+        const model = genAI.getGenerativeModel({model : 'gemini-pro'}); //modele rapide et gratuit 
 
         //On prepare le prompt pour l'ai
         const finalPrompt = `
