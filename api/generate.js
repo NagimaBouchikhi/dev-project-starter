@@ -32,8 +32,8 @@ export default async function handler(req,res) {
         `;
 
         //on genere 
-        const {response} = await ai.models.generateContent({
-            model: "gemini-1.5-flash", 
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash", 
             contents: [
                 {
                     parts: [
@@ -42,7 +42,7 @@ export default async function handler(req,res) {
                 }
             ]
         });
-        const text = response.text();
+        const text = response.candidates?.[0]?.content?.parts?.[0]?.text || "Pas de réponse générée.";
         
         return res.status(200).json({output:text});
     } catch(error) {
