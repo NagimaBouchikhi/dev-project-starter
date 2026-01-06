@@ -8,6 +8,7 @@ import { ArrowLeft } from 'lucide-react';
 import { TeamRoles } from './components/TeamRole';
 import { FirstSteps } from './components/FirstSteps';
 import { AIPrompts } from './components/AIPrompts';
+import { AIAdvisor } from './components/AIAdvisor';
 
 function App() {
 
@@ -62,6 +63,12 @@ function App() {
             <ArrowLeft size={20} />
             Changer les critères
           </button>
+
+          {/**AI Conseil*/}
+          <div className='app-ai-advisor'>
+            <AIAdvisor/>
+          </div>
+
 
           <div className='app-grid'>
           {/**Colonne de gauche info architecture + team role + first steps */}
