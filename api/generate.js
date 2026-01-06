@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 export default async function handler(req,res) {
 
@@ -15,12 +15,12 @@ export default async function handler(req,res) {
 
     try {
         //on recup context send by front
-        const {promptContext} = req.body;
+        const {promptContext} = req.body || {};
+        if (!promptContext) return res.status(400).json({ error: 'Context missing' });
 
         //On config gemini 
-        const genAI = new GoogleGenerativeAI(API_KEY);
-        const model = genAI.getGenerativeModel({model : 'gemini-pro'}); //modele rapide et gratuit 
-
+        const ai = new GoogleGenAI({apiKey :API_KEY});
+        
         //On prepare le prompt pour l'ai
         const finalPrompt = `
             Tu es un architecte logiciel expert (Tech Lead).
@@ -32,8 +32,16 @@ export default async function handler(req,res) {
         `;
 
         //on genere 
-        const result = await model.generateContent(finalPrompt);
-        const response = await result.response;
+        const {response} = await ai.models.generateContent({
+            model: "gemini-1.5-flash", 
+            contents: [
+                {
+                    parts: [
+                        { text: finalPrompt }
+                    ]
+                }
+            ]
+        });
         const text = response.text();
         
         return res.status(200).json({output:text});
